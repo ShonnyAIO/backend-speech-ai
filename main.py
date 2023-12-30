@@ -24,6 +24,10 @@ sign.saveCookiesToDir(cookie_path_dir)
 
 chatbot = hugchat.ChatBot(cookies=cookies.get_dict())  # or cookie_path="usercookies/<email>.json"
 
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
 @app.route("/api/resume-speech", methods=['POST'])
 def postChat():
 
@@ -63,4 +67,4 @@ def postChat():
         })
     
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host = '0.0.0.0:5000')
